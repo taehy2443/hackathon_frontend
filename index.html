@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Chat - Dark Mode</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #121212;
+            color: #FFFFFF;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: #1E1E1E;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+        input[type="text"], button {
+            padding: 15px;
+            margin: 10px 0;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #333;
+            background-color: #333;
+            color: #FFF;
+        }
+        button {
+            background-color: #FF5722;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #E64A19;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enter your name</h1>
+        <input type="text" id="username" placeholder="Your Name">
+        <button onclick="enterChat()">Enter Chat</button>
+    </div>
+
+    <script>
+        function enterChat() {
+            const username = document.getElementById('username').value;
+            if (username) {
+                sessionStorage.setItem('username', username);
+                window.location.href = 'chat.html';
+            } else {
+                alert('Please enter your name.');
+            }
+        }
+    </script>
+</body>
+</html>
